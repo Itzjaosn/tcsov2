@@ -1,0 +1,17 @@
+{
+  "name": "handler",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "commonjs",
+  "dependencies": {
+    "discord.js": "^14.26.3",
+    "dotenv": "^17.4.2",
+    "mongoose": "^9.5.0",
+    "redis": "^5.12.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.1",
+    "concurrently": "^9.1.0"
+  },
+  "author": "officialSteam"
+}

@@ -1,0 +1,13 @@
+const { SlashCommandBuilder } = require("@discordjs/builders");
+
+module.exports = {
+  cache: true,
+  data: new SlashCommandBuilder()
+    .setName("slow")
+    .setDescription("Demo for caching and auto-defer in microbase"),
+  execute: async function (interaction) {
+    await new Promise((resolve) => setTimeout(resolve, 5000)); 
+
+    await interaction.reply("Finished!");
+  },
+};
