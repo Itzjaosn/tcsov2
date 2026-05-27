@@ -78,6 +78,11 @@ module.exports = {
       },
     });
 
+    try {
+      const member = await interaction.guild.members.fetch(target.id);
+      await member.roles.add(rank.id);
+    } catch {}
+
     await interaction.editReply({ content: `<a:loading:1506059355227947181> Successfully promoted <@${target.id}> to **${rank.name}**.` });
   },
 };

@@ -2,6 +2,14 @@ const Application = require("../Database/Models/Application/application");
 const { buildApplicationEmbed, buildResultsEmbed } = require("../Utils/ApplicationEmbed");
 
 const RESULTS_CHANNEL_ID = "1475827783686029396";
+const APPROVED_ROLES = [
+  "1472332231195492593",
+  "1485111870200352798",
+  "1470972706332606612",
+  "1490204254504353794",
+  "1502277023425364048",
+  "1502371091727909184",
+];
 
 module.exports = {
   customID: "applicationapprove",
@@ -44,6 +52,11 @@ module.exports = {
         buildResultsEmbed({ userId: app.userId, comment })
       ).catch(() => null);
     }
+
+    try {
+      const member = await interaction.guild.members.fetch(app.userId);
+      await member.roles.add(APPROVED_ROLES);
+    } catch {}
 
     if (app.threadId) {
       const thread = await client.channels.fetch(app.threadId).catch(() => null);
