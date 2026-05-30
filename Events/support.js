@@ -41,7 +41,7 @@ function buildSupportPanel() {
         components: [
           { type: 12, items: [{ media: { url: BANNER_URL }, spoiler: false }] },
           { type: 14, divider: true, spacing: 2 },
-          { type: 10, content: "## <:TCSO_Logo:1480462877382148290> Tarrant County Sheriffs Office Assistance" },
+          { type: 10, content: "## <:HCSO:1509640458379464957> Harris County Sheriff's Office Assistance" },
           { type: 14, divider: true, spacing: 2 },
           { type: 10, content: "**<:support:1472674814153068544> General Support**\n* Discord Support \n* General Questions" },
           { type: 10, content: "**<:alert:1472674963080216809> Internal Affairs**\n* Deputy Reports\n* Infraction Appeals" },
@@ -84,7 +84,7 @@ function buildTicketEmbed(userMention, inquiry, pingRoleId, claimLabel = "Claim"
           { type: 12, items: [{ media: { url: BANNER_URL } }] },
           {
             type: 10,
-            content: `\nThank you for contacting the superivosry staff here at the **<:TCSO_Logo:1480462877382148290> Tarrant County Shierff's Office**\n\n**Inquiry**\n\`\`\`\n${inquiry}\n\`\`\`\n`,
+            content: `\nThank you for contacting the superivosry staff here at the **<:HCSO:1509640458379464957> Harris County Sheriff's Office**\n\n**Inquiry**\n\`\`\`\n${inquiry}\n\`\`\`\n`,
           },
           { type: 14 },
           {
@@ -127,7 +127,7 @@ function buildTranscriptLogEmbed(claimerMention, closerMention, inquiry, transcr
         components: [
           {
             type: 10,
-            content: `# <:mail:1483865955108126831> Ticket Closed\nA member from the **Tarrant County Sheriff's** has closed your ticket.\n\n`,
+            content: `# <:mail:1483865955108126831> Ticket Closed\nA member from the **Harris County Sheriff's** has closed your ticket.\n\n`,
           },
           { type: 14, divider: true, spacing: 2 },
           {

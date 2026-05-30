@@ -40,7 +40,7 @@ module.exports = {
                 components: [
                   {
                     type: 10,
-                    content: "# Department Shift\n-# <@&1470972706332606612>\n- We are hosting a shift for the <:TCSO_Logo:1480462877382148290> **Tarrant County Sheriff's Office**. Our high command team is expecting you to attening our shift. As always, thank you for your support within TCSO.",
+                    content: "# Department Shift\n-# <@&1470972706332606612>\n- We are hosting a shift for the <:HCSO:1509640458379464957> **Harris County Sheriff's Office**. Our high command team is expecting you to attening our shift. As always, thank you for your support within TCSO.",
                   },
                 ],
                 accessory: {

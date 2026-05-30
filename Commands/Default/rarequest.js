@@ -25,7 +25,7 @@ module.exports = {
             components: [
               {
                 type: 10,
-                content: `# <:TCSO_Logo:1480462877382148290> Ride Along Request\n-# <@&1470972695188344883>\n- <@${interaction.user.id}> has requested to get a **ride along** complete by a field supervisor. Click the complete button once the RA is complete.`,
+                content: `# <:HCSO:1509640458379464957> Ride Along Request\n-# <@&1470972695188344883>\n- <@${interaction.user.id}> has requested to get a **ride along** complete by a field supervisor. Click the complete button once the RA is complete.`,
               },
               {
                 type: 1,

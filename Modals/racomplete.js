@@ -39,7 +39,7 @@ module.exports = {
             components: [
               {
                 type: 10,
-                content: `# <:TCSO_Logo:1480462877382148290> Ride Along Log\n-# Supervisor: <@${interaction.user.id}>\n- **Pass or Fail?**\n\`\`\`Passed\`\`\`\n- **Statement**\n\`\`\`${statement}\`\`\`\n\n\n`,
+                content: `# <:HCSO:1509640458379464957> Ride Along Log\n-# Supervisor: <@${interaction.user.id}>\n- **Pass or Fail?**\n\`\`\`Passed\`\`\`\n- **Statement**\n\`\`\`${statement}\`\`\`\n\n\n`,
               },
               {
                 type: 12,

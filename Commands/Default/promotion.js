@@ -52,7 +52,7 @@ module.exports = {
                 components: [
                   {
                     type: 10,
-                    content: `# <:TCSO_Logo:1480462877382148290> Deputy Promotion\n\n-# <@${target.id}>\nGiven your past dedication, hard work, and commitment, we've decided to honor you by promoting you. Keep up the amazing hard work you've committed to.\n\n**<:stats:1508597506001604740> New Rank:** <@&${rank.id}>\n**<:clipboard:1508597608505937940> Reason:** ${reason}`,
+                    content: `# <:HCSO:1509640458379464957> Deputy Promotion\n\n-# <@${target.id}>\nGiven your past dedication, hard work, and commitment, we've decided to honor you by promoting you. Keep up the amazing hard work you've committed to.\n\n**<:stats:1508597506001604740> New Rank:** <@&${rank.id}>\n**<:clipboard:1508597608505937940> Reason:** ${reason}`,
                   },
                 ],
                 accessory: {

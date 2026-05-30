@@ -30,12 +30,12 @@ module.exports = {
             { type: 14, divider: true, spacing: 2 },
             {
               type: 10,
-              content: "##    <:TCSO_Logo:1480462877382148290> Tarrant County Sheriff's Office Entry Application",
+              content: "##    <:HCSO:1509640458379464957> Harris County Sheriff's Office Entry Application",
             },
             { type: 14, divider: true, spacing: 2 },
             {
               type: 10,
-              content: "> *Welcome to the <:TCSO_Logo:1480462877382148290> **Tarrant County Sheriff's Office**. Here we strive with professionalism, good administration, and activity. When you join the department, you will see some of the best roleplay experiences that we offer here. During this application, we expect you to fill out all responses with the best of your ability. If you don't understand something, go to the next question. We hope that you pass this application and get into the department. See you soon!*\n\n**`Department Requirements`** \n> - Must be 13+ years of age \n> - Must have LEO experience \n> - Must be professional \n> - Must use Grammar",
+              content: "> *Welcome to the <:HCSO:1509640458379464957> **Harris County Sheriff's Office**. Here we strive with professionalism, good administration, and activity. When you join the department, you will see some of the best roleplay experiences that we offer here. During this application, we expect you to fill out all responses with the best of your ability. If you don't understand something, go to the next question. We hope that you pass this application and get into the department. See you soon!*\n\n**`Department Requirements`** \n> - Must be 13+ years of age \n> - Must have LEO experience \n> - Must be professional \n> - Must use Grammar",
             },
             { type: 14, divider: true, spacing: 2 },
             {

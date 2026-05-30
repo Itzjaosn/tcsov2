@@ -2,7 +2,11 @@
   "permissions": {
     "allow": [
       "PowerShell(Get-Command node -ErrorAction SilentlyContinue; \\(Get-ChildItem \"C:\\\\Program Files\\\\nodejs\\\\node.exe\" -ErrorAction SilentlyContinue\\).FullName; \\(Get-ChildItem \"$env:APPDATA\\\\nvm\" -Filter \"node.exe\" -Recurse -ErrorAction SilentlyContinue | Select-Object -First 1\\).FullName)",
-      "WebFetch(domain:api.cookie-api.com)"
+      "WebFetch(domain:api.cookie-api.com)",
+      "Bash(sed -i '' \\\\ *)"
+    ],
+    "additionalDirectories": [
+      "/Users/jason/Documents/GitHub/tcsov2/Messages"
     ]
   }
 }

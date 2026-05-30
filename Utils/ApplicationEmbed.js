@@ -6,7 +6,7 @@ const HIGH_COMMAND_ROLE_ID = "1470972691287638149";
 const QUESTIONS = [
   "Do you have any law enforcement experience (IRL or ERLC)?",
   "What does a law enforcement officer mean to you?",
-  "Why do you wish to join the **Tarrant County Sheriff's Office**?",
+  "Why do you wish to join the **Harris County Sheriff's Office**?",
   "You're on a traffic stop, and a suspect decides to be very uncompliant. What steps do you take to de-escalate the situation?",
   "What are some pro's and con's about yourself?",
 ];
@@ -36,7 +36,7 @@ function buildApplicationEmbed({ appId, answers, status = "pending", declineReas
           { type: 10, content: `@here | <@&${HIGH_COMMAND_ROLE_ID}>` },
           { type: 12, items: [{ media: { url: TOP_BANNER } }] },
           { type: 14, divider: true, spacing: 2 },
-          { type: 10, content: `##    <:TCSO_Logo:1480462877382148290> Tarrant County Sheriff's Office | New Application` },
+          { type: 10, content: `##    <:HCSO:1509640458379464957> Harris County Sheriff's Office | New Application` },
           { type: 14, divider: true, spacing: 2 },
           ...qaComponents,
           { type: 14, divider: true, spacing: 2 },
@@ -78,10 +78,10 @@ function buildResultsEmbed({ userId, comment }) {
           { type: 10, content: `<@${userId}>` },
           { type: 12, items: [{ media: { url: TOP_BANNER } }] },
           { type: 14, divider: true, spacing: 1 },
-          { type: 10, content: `##    <:TCSO_Logo:1480462877382148290> Application Accepted` },
+          { type: 10, content: `##    <:HCSO:1509640458379464957> Application Accepted` },
           {
             type: 10,
-            content: `Congrats and welcome to the **Tarrant County Sheriff's Office!!** We are thrilled to have you here. Any questions in regards to your training/ride along can be answered in support.\n\n**Application Comments**\n\`\`\`${comment}\`\`\``,
+            content: `Congrats and welcome to the **Harris County Sheriff's Office!!** We are thrilled to have you here. Any questions in regards to your training/ride along can be answered in support.\n\n**Application Comments**\n\`\`\`${comment}\`\`\``,
           },
           { type: 12, items: [{ media: { url: BOTTOM_BANNER } }] },
         ],
