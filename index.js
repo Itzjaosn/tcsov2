@@ -1,5 +1,24 @@
+// Node 19+ has globalThis.crypto natively; polyfill for 15-18
 if (!globalThis.crypto) {
-  globalThis.crypto = require("crypto").webcrypto;
+  const nc = require("crypto");
+  if (nc.webcrypto) {
+    globalThis.crypto = nc.webcrypto;
+  } else {
+    console.error(
+      `[FATAL] Node.js ${process.version} does not have Web Crypto API.\n` +
+      `This bot requires Node.js >= 20. Please update the Node version on your hosting panel.`
+    );
+    process.exit(1);
+  }
+}
+
+// Catch a bad polyfill (e.g. Node 14 where webcrypto returned undefined)
+if (!globalThis.crypto?.subtle) {
+  console.error(
+    `[FATAL] globalThis.crypto.subtle is unavailable (Node ${process.version}).\n` +
+    `This bot requires Node.js >= 20. Please update the Node version on your hosting panel.`
+  );
+  process.exit(1);
 }
 
 const preloadStart = process.hrtime.bigint();
