@@ -1,3 +1,7 @@
+if (!globalThis.crypto) {
+  globalThis.crypto = require("crypto").webcrypto;
+}
+
 const preloadStart = process.hrtime.bigint();
 
 const path = require("node:path");
@@ -139,6 +143,28 @@ const COMPONENT_FOLDERS = {
   "./Context": client.context,
   "./Events": null,
 };
+
+// Auto-discover feature folders under Features/
+const FEATURES_DIR = path.join(__dirname, "Features");
+if (existsSync(FEATURES_DIR)) {
+  const FEATURE_CACHE_MAP = {
+    Commands: client.commands,
+    Buttons: client.buttons,
+    Menus: client.menus,
+    Modals: client.modals,
+    Messages: client.messages,
+    Context: client.context,
+  };
+  for (const feature of fs.readdirSync(FEATURES_DIR)) {
+    const featurePath = path.join(FEATURES_DIR, feature);
+    if (!fs.statSync(featurePath).isDirectory()) continue;
+    for (const [subfolder, cache] of Object.entries(FEATURE_CACHE_MAP)) {
+      if (existsSync(path.join(featurePath, subfolder))) {
+        COMPONENT_FOLDERS[`./Features/${feature}/${subfolder}`] = cache;
+      }
+    }
+  }
+}
 
 const PRESET_FILES = {
   "./Commands": "./Presets/Command",
