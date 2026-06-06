@@ -11,16 +11,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Upload files via SFTP
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+      - name: Upload files via SCP
+        uses: appleboy/scp-action@v0.1.7
         with:
-          server: ${{ secrets.SFTP_HOST }}
+          host: ${{ secrets.SFTP_HOST }}
           port: ${{ secrets.SFTP_PORT }}
           username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
-          local_path: './'
-          remote_path: '/home/container'
-          sftpArgs: '-o ConnectTimeout=10'
+          source: ".,!node_modules,!.env,!.git,!.github,!Dockerfile,!nixpacks.toml"
+          target: "/home/container"
 
       - name: Restart server
         run: |
