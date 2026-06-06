@@ -12,15 +12,18 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Upload files via SFTP
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
-        with:
-          server: ${{ secrets.SFTP_HOST }}
-          port: 2022
-          username: ${{ secrets.SFTP_USERNAME }}
-          password: ${{ secrets.SFTP_PASSWORD }}
-          local_path: './*'
-          remote_path: '/home/container'
-          sftp_only: true
+        env:
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+        run: |
+          sudo apt-get install -y lftp
+          lftp -c "
+            set sftp:auto-confirm yes;
+            set net:timeout 30;
+            set ssl:verify-certificate no;
+            open sftp://${{ secrets.SFTP_USERNAME }}:$SFTP_PASSWORD@${{ secrets.SFTP_HOST }}:2022;
+            mirror -R --exclude=node_modules/ --exclude=.git/ --exclude=.env --exclude=.github/ ./ /home/container/;
+            bye
+          "
 
       - name: Restart server
         run: |
