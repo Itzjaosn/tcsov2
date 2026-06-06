@@ -20,13 +20,7 @@ jobs:
           password: ${{ secrets.SFTP_PASSWORD }}
           local_path: './'
           remote_path: '/home/container'
-          exclude: |
-            .git
-            .github
-            node_modules
-            .env
-            Dockerfile
-            nixpacks.toml
+          sftpArgs: '-o ConnectTimeout=10'
 
       - name: Restart server
         run: |
