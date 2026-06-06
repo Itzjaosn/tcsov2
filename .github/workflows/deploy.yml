@@ -15,7 +15,7 @@ jobs:
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SFTP_HOST }}
-          port: ${{ secrets.SFTP_PORT }}
+          port: 2022
           username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
           source: ".,!node_modules,!.env,!.git,!.github,!Dockerfile,!nixpacks.toml"
