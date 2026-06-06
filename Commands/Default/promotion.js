@@ -1,5 +1,7 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { Routes, MessageFlags } = require("discord.js");
+const Promotion = require("../../Database/Models/Promotion/promotion");
+const { buildPromotionEmbed } = require("../../Features/Promotion/Utils/PromotionEmbed");
 
 const PROMOTION_CHANNEL_ID = "1470972970162716765";
 const HIGH_COMMAND_ROLE_ID = "1470972691287638149";
@@ -36,47 +38,29 @@ module.exports = {
     const target = interaction.options.getUser("user");
     const reason = interaction.options.getString("reason");
     const rank   = interaction.options.getRole("rank");
+    const timestamp = Math.floor(Date.now() / 1000);
 
     await interaction.deferReply({ flags: MessageFlags.Ephemeral });
 
-    await client.rest.post(Routes.channelMessages(PROMOTION_CHANNEL_ID), {
-      body: {
-        flags: 32768,
-        allowed_mentions: { parse: [] },
-        components: [
-          {
-            type: 17,
-            components: [
-              {
-                type: 9,
-                components: [
-                  {
-                    type: 10,
-                    content: `# <:HCSO:1509640458379464957> Deputy Promotion\n\n-# <@${target.id}>\nGiven your past dedication, hard work, and commitment, we've decided to honor you by promoting you. Keep up the amazing hard work you've committed to.\n\n**<:stats:1508597506001604740> New Rank:** <@&${rank.id}>\n**<:clipboard:1508597608505937940> Reason:** ${reason}`,
-                  },
-                ],
-                accessory: {
-                  type: 11,
-                  media: {
-                    url: "hhttps://media.discordapp.net/attachments/1510013734591004802/1510013826886795436/New_Project.png?ex=6a2528b7&is=6a23d737&hm=e875e7a90570d7718de35ca3871762d89e38c976cbaca792ebf857a78b1a526c&=&format=webp&quality=lossless&width=4080&height=146",
-                  },
-                },
-              },
-              {
-                type: 12,
-                items: [
-                  {
-                    media: {
-                      url: "https://images-ext-1.discordapp.net/external/nH_sA5u_4cndYP4RamxRNzfi_d_GG_kms2kqzUX6KiE/%3Fsize%3D512/https/cdn.discordapp.com/icons/1443780884527448125/e7308f678c38c55a50757b7c7a8bc962.png?format=webp&quality=lossless&width=358&height=358",
-                    },
-                  },
-                ],
-              },
-            ],
-          },
-        ],
-      },
+    const sentMsg = await client.rest.post(Routes.channelMessages(PROMOTION_CHANNEL_ID), {
+      body: buildPromotionEmbed({ targetId: target.id, rankId: rank.id, reason }),
     });
+
+    if (client.database?.isConnected()) {
+      await new Promotion({
+        guildId:    interaction.guildId,
+        targetId:   target.id,
+        targetTag:  target.username,
+        issuedById: interaction.user.id,
+        issuedByTag: interaction.user.username,
+        rankId:     rank.id,
+        rankName:   rank.name,
+        reason,
+        messageId:  sentMsg.id,
+        channelId:  PROMOTION_CHANNEL_ID,
+        timestamp,
+      }).save().catch(() => {});
+    }
 
     try {
       const member = await interaction.guild.members.fetch(target.id);

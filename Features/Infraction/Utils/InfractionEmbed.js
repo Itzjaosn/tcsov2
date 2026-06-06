@@ -13,17 +13,13 @@ function buildInfractionEmbed({ targetMention, issuerName, statement, punishment
         type: 17,
         components: [
           { type: 12, items: [{ media: { url: BANNER_URL } }] },
-          {
-            type: 10,
-            content: `\n\n ${targetMention}.`,
-          },
-          { type: 14, spacing: 1 },
+          { type: 14, divider: true, spacing: 1 },
           {
             type: 10,
             content: `<:dot:1496186898643681351> **User**\n${targetMention}\n<:dot:1496186898643681351> **Issued**\n<t:${timestamp}:D>\n<:dot:1496186898643681351> **Statement**\n${statement}`,
           },
           { type: 10, content: footer },
-          { type: 14, spacing: 2 },
+          { type: 14, divider: true, spacing: 2 },
           {
             type: 1,
             components: [
