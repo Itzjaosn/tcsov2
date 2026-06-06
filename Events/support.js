@@ -110,7 +110,7 @@ function buildResolvedEmbed(resolverMention, reason = null) {
         components: [
           {
             type: 10,
-            content: `<:technical:1472674913054888181> Ticket has been marked resolved by ${resolverMention}${reasonLine}\n> Ticket will close in **10 seconds...**`,
+            content: `<a:loading:1506059355227947181> Ticket has been marked resolved by ${resolverMention}${reasonLine}\n> Ticket will close in **10 seconds...**`,
           },
         ],
       },
@@ -156,7 +156,7 @@ function buildCloseEmbed() {
         components: [
           {
             type: 10,
-            content: `<:alert:1472674963080216809> Ticket tick has been marked **resolved**\n-# Transcript saving. Ticket will close in **5 secounds...**`,
+            content: `<a:loading:1506059355227947181> Ticket tick has been marked **resolved**\n-# Transcript saving. Ticket will close in **5 secounds...**`,
           },
         ],
       },
@@ -285,7 +285,7 @@ async function handleModalSubmit(interaction, prefix, type) {
     (c) => c.parentId === SUPPORT_CATEGORY_ID && c.name.endsWith(username)
   );
   if (existing) {
-    return interaction.editReply(buildSimple(`You already have a ticket open: <#${existing.id}>`));
+    return interaction.editReply(buildSimple(`<a:loading:1506059355227947181> You already have a ticket open: <#${existing.id}>`));
   }
 
   const inquiry = interaction.fields.getTextInputValue("inquiry_text");
@@ -308,12 +308,12 @@ async function handleModalSubmit(interaction, prefix, type) {
     }).save().catch(() => {});
   }
 
-  await interaction.editReply(buildSimple(`You can check your ticket: <#${channel.id}>`));
+  await interaction.editReply(buildSimple(`Click <#${channel.id}> to view your ticket.`));
 }
 
 async function handleClaimButton(interaction) {
   if (!hasSupport(interaction.member)) {
-    return interaction.reply(buildSimple("You can't claim this ticket.", true));
+    return interaction.reply(buildSimple("<a:loading:1506059355227947181> You can't claim this ticket.", true));
   }
 
   const channelId = interaction.channel.id;
@@ -325,11 +325,11 @@ async function handleClaimButton(interaction) {
   if (!isClaimed) {
     claimState.set(channelId, interaction.user.id);
     if (data) await data.message.edit(buildTicketEmbed(data.userMention, data.inquiry, data.pingRole, "Unclaim")).catch(() => {});
-    await interaction.channel.send({ content: `<:alert:1472674963080216809> <@${interaction.user.id}> will be handling this ticket` });
+    await interaction.channel.send({ content: `<:dot:1496186898643681351> <@${interaction.user.id}> will be assisting this ticket` });
   } else {
     claimState.delete(channelId);
     if (data) await data.message.edit(buildTicketEmbed(data.userMention, data.inquiry, data.pingRole, "Claim")).catch(() => {});
-    await interaction.channel.send({ content: `<:alert:1472674963080216809> <@${interaction.user.id}> will no longer be handling this ticket.` });
+    await interaction.channel.send({ content: `<:dot:1496186898643681351> <@${interaction.user.id}> will no longer be assisting this ticket.` });
   }
 }
 
@@ -340,7 +340,7 @@ async function handleCloseButton(interaction) {
   await interaction.deferUpdate();
   claimState.delete(interaction.channel.id);
   ticketData.delete(interaction.channel.id);
-  await interaction.channel.send({ content: `<:alert:1472674963080216809> Ticket tick has been marked **resolved**\n-# Transcript saving. Ticket will close in **5 secounds...**` });
+  await interaction.channel.send({ content: `<a:loading:1506059355227947181> Ticket tick has been marked **resolved**\n-# Transcript saving. Ticket will close in **5 secounds...**` });
   await saveAndPostTranscript(interaction.channel, interaction.user, interaction.client);
   setTimeout(async () => {
     try { await interaction.channel.delete("Ticket closed"); } catch {}
@@ -355,7 +355,7 @@ async function handleMessage(message) {
 
   if (content === ".panel") {
     if (!hasSupport(member) && !member.permissions.has(PermissionFlagsBits.ManageGuild)) {
-      return message.reply(buildSimple("You don't have permission to post the support panel."));
+      return message.reply(buildSimple("<a:loading:1506059355227947181> You don't have permission to post the support panel."));
     }
     await message.delete().catch(() => {});
     await message.channel.send(buildSupportPanel());
@@ -372,14 +372,14 @@ async function handleMessage(message) {
     await saveAndPostTranscript(message.channel, message.author, message.client);
     await message.channel.send(buildResolvedEmbed(`<@${message.author.id}>`, reason));
     setTimeout(async () => {
-      try { await message.channel.delete("Ticket closed by staff"); } catch {}
+      try { await message.channel.delete("Ticket closed by a department supervisor"); } catch {}
     }, 10_000);
     return;
   }
 
   if (content.startsWith(".rename ")) {
     const newName = content.slice(8).trim().toLowerCase().replace(/\s+/g, "-");
-    if (!newName) return message.reply(buildSimple("Provide a valid name for the ticket to be renamed to..."));
+    if (!newName) return message.reply(buildSimple("<a:loading:1506059355227947181> Provide a valid name for the ticket to be renamed to..."));
     await message.delete().catch(() => {});
     await message.channel.setName(newName);
   }
@@ -393,7 +393,7 @@ async function handleMessage(message) {
       SendMessages: true,
       ReadMessageHistory: true,
     }).catch(() => {});
-    await message.channel.send({ content: `<:alert:1472674963080216809> <@${userId}> has been added sucessfully.` });
+    await message.channel.send({ content: `<:check:1508589586551406664> <@${userId}> has been added sucessfully.` });
     return;
   }
 
@@ -402,7 +402,7 @@ async function handleMessage(message) {
     if (!userId) return;
     await message.delete().catch(() => {});
     await message.channel.permissionOverwrites.delete(userId).catch(() => {});
-    await message.channel.send({ content: `<:alert:1472674963080216809> <@${userId}> has been removed sucessfully.` });
+    await message.channel.send({ content: `<:check:1508589586551406664> <@${userId}> has been removed sucessfully.` });
     return;
   }
 }
