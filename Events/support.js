@@ -16,8 +16,8 @@ const SUPPORT_ROLE_ID            = "1470972695188344883";
 const COMMAND_ROLE_ID            = "1470972691287638149";
 const OFFICE_OF_SHERIFF_ROLE_ID  = "1502788965671895160";
 
-const BANNER_URL = "https://media.discordapp.net/attachments/1470972888747343956/1491044800391020705/CIV_OPS_2.png?ex=6a0cf96e&is=6a0ba7ee&hm=5be2fa81d0b2daafa1a5cbeff8bf87a60150094d18635c838268fe5d3241b30a&=&format=webp&quality=lossless&width=1730&height=576";
-const FOOTER_URL = "https://scnx-cdn.scootkit.net/1776266196390-guild-LjjdP0ksIIUvwqxpgWIOBv4DH2hfOeD9eBwivv5nNEy19dDS.png";
+const BANNER_URL = "https://media.discordapp.net/attachments/1470972888747343956/1510012319021797528/HCSO_Banner_1.png?ex=6a25d00f&is=6a247e8f&hm=62dea0944f71c9a8802602f72cb8249b8d2f5d5b0117108c79fe904d0ac70477&=&format=webp&quality=lossless&width=4080&height=1360";
+const FOOTER_URL = "https://media.discordapp.net/attachments/1510013734591004802/1510013826886795436/New_Project.png?ex=6a25d177&is=6a247ff7&hm=8e469e993563e894308e8c0e49f8b36cb3674ffd8041f790c8ccc0ffff3e19f6&=&format=webp&quality=lossless&width=4080&height=146";
 
 const TRANSCRIPT_LOG_CHANNEL_ID = "1494366880620875777";
 
@@ -36,16 +36,16 @@ function buildSupportPanel() {
     components: [
       {
         type: 17,
-        accent_color: 3692197,
+        accent_color: null,
         spoiler: false,
         components: [
           { type: 12, items: [{ media: { url: BANNER_URL }, spoiler: false }] },
           { type: 14, divider: true, spacing: 2 },
           { type: 10, content: "## <:HCSO:1509640458379464957> Harris County Sheriff's Office Assistance" },
           { type: 14, divider: true, spacing: 2 },
-          { type: 10, content: "**<:support:1472674814153068544> General Support**\n* Discord Support \n* General Questions" },
-          { type: 10, content: "**<:alert:1472674963080216809> Internal Affairs**\n* Deputy Reports\n* Infraction Appeals" },
-          { type: 10, content: "**<:technical:1472674913054888181> High Command**\n* Major Concerns \n* Admin Reports" },
+          { type: 10, content: "**General Support**\n* Discord Support \n* General Questions" },
+          { type: 10, content: "**Internal Affairs**\n* Deputy Reports\n* Infraction Appeals" },
+          { type: 10, content: "**High Command**\n* Major Concerns \n* Admin Reports" },
           { type: 14, divider: true, spacing: 2 },
           { type: 12, items: [{ media: { url: FOOTER_URL } }] },
           { type: 14 },
