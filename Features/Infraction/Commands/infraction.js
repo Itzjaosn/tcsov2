@@ -12,7 +12,7 @@ module.exports = {
     .setDescription("Issue an infraction to a deputy")
     .addUserOption(opt =>
       opt.setName("user")
-        .setDescription("user you're punishing")
+        .setDescription("deputy you're punishing")
         .setRequired(true)
     ),
   execute: async function (interaction, client) {
@@ -24,7 +24,7 @@ module.exports = {
       interaction.member.roles.cache.has(SUPERVISORY_ROLE_ID);
 
     if (!hasAccess) {
-      return interaction.reply({ content: "You're not allowed to use this command.", flags: 64 });
+      return interaction.reply({ content: "<a:loading:1506059355227947181> You're not allowed to use this command.", flags: 64 });
     }
 
     const target = interaction.options.getUser("user");
@@ -44,7 +44,7 @@ module.exports = {
           new TextInputBuilder()
             .setCustomId("punishment")
             .setLabel("Punishment")
-            .setPlaceholder("Please provide the type of punishment. E.g., Warning, Suspension, etc.")
+            .setPlaceholder("<a:loading:1506059355227947181> Please provide the type of punishment. E.g., Warning, Suspension, etc.")
             .setStyle(TextInputStyle.Short)
             .setRequired(true)
         )

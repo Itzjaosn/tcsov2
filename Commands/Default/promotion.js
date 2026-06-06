@@ -58,7 +58,7 @@ module.exports = {
                 accessory: {
                   type: 11,
                   media: {
-                    url: "https://images-ext-1.discordapp.net/external/4d0soQge718gFmgHn8Im8p8CDLnuO3PMoHWxItWef0g/%3Fsize%3D1024/https/cdn.discordapp.com/icons/1443780884527448125/5821d50eacec1d96eb7e32d9ce9ef44a.png?format=webp&quality=lossless",
+                    url: "hhttps://media.discordapp.net/attachments/1510013734591004802/1510013826886795436/New_Project.png?ex=6a2528b7&is=6a23d737&hm=e875e7a90570d7718de35ca3871762d89e38c976cbaca792ebf857a78b1a526c&=&format=webp&quality=lossless&width=4080&height=146",
                   },
                 },
               },
@@ -67,7 +67,7 @@ module.exports = {
                 items: [
                   {
                     media: {
-                      url: "https://images-ext-1.discordapp.net/external/ottJy5VsNYBLqpCxmEY3CvsDkS7QMPZWDkXxT3A7WeI/%3Fformat%3Dwebp%26quality%3Dlossless/https/images-ext-1.discordapp.net/external/MzIksgwnY_eQTOsW8oVYHRd8gjdTpYHoLGuCDtw5p9o/https/scnx-cdn.scootkit.net/1776266196390-guild-LjjdP0ksIIUvwqxpgWIOBv4DH2hfOeD9eBwivv5nNEy19dDS.png?format=webp&quality=lossless",
+                      url: "https://images-ext-1.discordapp.net/external/nH_sA5u_4cndYP4RamxRNzfi_d_GG_kms2kqzUX6KiE/%3Fsize%3D512/https/cdn.discordapp.com/icons/1443780884527448125/e7308f678c38c55a50757b7c7a8bc962.png?format=webp&quality=lossless&width=358&height=358",
                     },
                   },
                 ],

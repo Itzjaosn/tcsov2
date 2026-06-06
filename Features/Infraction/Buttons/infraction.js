@@ -23,14 +23,14 @@ module.exports = {
       interaction.member.roles.cache.has(SUPERVISORY_ROLE_ID);
 
     if (!hasAccess) {
-      return interaction.reply({ content: "You're not allowed to use this button.", flags: 64 });
+      return interaction.reply({ content: "<a:loading:1506059355227947181> You're not allowed to use this button.", flags: 64 });
     }
 
     let infraction = null;
     if (interaction.client.database?.isConnected()) {
       infraction = await Infraction.findOne({ infractionId }).catch(() => null);
       if (infraction?.voided) {
-        return interaction.reply({ content: "This infraction has already been voided.", flags: 64 });
+        return interaction.reply({ content: " <a:loading:1506059355227947181> This infraction has already been voided.", flags: 64 });
       }
     }
 

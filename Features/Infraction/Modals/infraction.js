@@ -79,7 +79,7 @@ module.exports = {
           voidReason:    reason,
         })
       );
-      await message.reply({ content: `<:notes:1497254373158420530> Infraction was voided by <@${interaction.user.id}>` });
+      await message.reply({ content: `<:movetofolder:1497254662896615436> Infraction was voided by <@${interaction.user.id}>` });
     } catch {}
 
     await interaction.editReply({ content: "<:check:1508589586551406664> Infraction has been voided." });

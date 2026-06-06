@@ -1,4 +1,4 @@
-const BANNER_URL = "https://images-ext-1.discordapp.net/external/v428gQbn5YD4sY3bgrKbTew1mb8g7rfj-IQByJZDBj4/https/scnx-cdn.scootkit.net/1776352008370-guild-1wtgUFHbymVXQcYHLmEhIUn6pJ6FYZvKhcTnNqO00UDHtagE.png?format=webp&quality=lossless&width=1860&height=431";
+const BANNER_URL = "https://media.discordapp.net/attachments/1470972888747343956/1510012319021797528/HCSO_Banner_1.png?ex=6a25274f&is=6a23d5cf&hm=554e8da908c035013cb501bf0cc33ac1004023e00ab30b4210222dc3654a75ae&=&format=webp&quality=lossless&width=4080&height=1360";
 
 function buildInfractionEmbed({ targetMention, issuerName, statement, punishment, paddedId, timestamp, voidedBy = null, voidReason = null }) {
   const isVoided = voidedBy !== null;
@@ -20,7 +20,7 @@ function buildInfractionEmbed({ targetMention, issuerName, statement, punishment
           { type: 14, spacing: 1 },
           {
             type: 10,
-            content: `<:alert:1472674963080216809> **User**\n${targetMention}\n<:dot:1496186898643681351> **Issued**\n<t:${timestamp}:D>\n<:folder:1497254635902341170> **Statement**\n${statement}`,
+            content: `<:dot:1496186898643681351> **User**\n${targetMention}\n<:dot:1496186898643681351> **Issued**\n<t:${timestamp}:D>\n<:dot:1496186898643681351> **Statement**\n${statement}`,
           },
           { type: 10, content: footer },
           { type: 14, spacing: 2 },

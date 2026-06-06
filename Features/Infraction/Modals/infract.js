@@ -21,7 +21,7 @@ module.exports = {
     try {
       target = await interaction.client.users.fetch(targetId);
     } catch {
-      return interaction.editReply({ content: "Could not find that user." });
+      return interaction.editReply({ content: "<a:loading:1506059355227947181> Could not find that user." });
     }
 
     let infractionNum = 1;
@@ -61,6 +61,6 @@ module.exports = {
       }).save().catch(() => {});
     }
 
-    await interaction.editReply({ content: "<:technical:1472674913054888181> infraction has been sent." });
+    await interaction.editReply({ content: "<a:loading:1506059355227947181> infraction has been sent." });
   },
 };

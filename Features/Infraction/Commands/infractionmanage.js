@@ -52,7 +52,7 @@ module.exports = {
             },
             {
               type: 10,
-              content: `<:alert:1472674963080216809> **User:** <@${infraction.targetId}>\n<:technical:1472674913054888181> **Statement:** ${infraction.statement}\n<:bulletpoint:1472626320780427425> **Punishment:** ${infraction.punishment}${isVoided ? `\n\n-# This infraction has been voided.` : ""}`,
+              content: `<:dot:1496186898643681351> **User:** <@${infraction.targetId}>\n<:dot:1496186898643681351> **Statement:** ${infraction.statement}\n<:dot:1496186898643681351> **Punishment:** ${infraction.punishment}${isVoided ? `\n\n-# <:movetofolder:1497254662896615436> This infraction has been voided.` : ""}`,
             },
             {
               type: 1,
