@@ -7,7 +7,10 @@
       "Read(//Users/jason/Desktop/tcso/**)",
       "Bash(zip -r tcsov2_deploy.zip tcsov2 --exclude \"tcsov2/node_modules/*\" --exclude \"tcsov2/.git/*\" --exclude \"tcsov2/.env\" --exclude \"tcsov2/.github/*\")",
       "Bash(zip -r ../tcsov2_deploy.zip . --exclude \"node_modules/*\" --exclude \".git/*\" --exclude \".env\" --exclude \".github/*\")",
-      "Bash(open -R /Users/jason/Desktop/tcso/.env.template)"
+      "Bash(open -R /Users/jason/Desktop/tcso/.env.template)",
+      "Bash(git -C /Users/jason/Desktop/tcso/tcsov2 status)",
+      "Bash(git -C /Users/jason/Desktop/tcso/tcsov2 log --oneline -10)",
+      "Bash(git -C /Users/jason/Desktop/tcso/tcsov2 remote get-url origin)"
     ],
     "additionalDirectories": [
       "/Users/jason/Documents/GitHub/tcsov2/Messages"
