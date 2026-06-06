@@ -1,4 +1,4 @@
-name: Deploy
+name: Deploy to SparkedHost
 
 on:
   push:
@@ -8,11 +8,30 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Restart bot on Apollo Panel
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Upload files via SFTP
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+          server: ${{ secrets.SFTP_HOST }}
+          port: ${{ secrets.SFTP_PORT }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          local_path: './'
+          remote_path: '/home/container'
+          exclude: |
+            .git
+            .github
+            node_modules
+            .env
+            Dockerfile
+            nixpacks.toml
+
+      - name: Restart server
         run: |
-          curl -s -o /dev/null -w "%{http_code}" -X POST \
+          curl -s -X POST "https://control.sparkedhost.us/api/client/servers/4fdb618c/power" \
             -H "Authorization: Bearer ${{ secrets.PANEL_API_KEY }}" \
             -H "Content-Type: application/json" \
             -H "Accept: application/json" \
-            -d '{"signal":"restart"}' \
-            https://control.sparkedhost.us/api/client/servers/4fdb618c/power
+            -d '{"signal":"restart"}'
