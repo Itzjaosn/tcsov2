@@ -3,7 +3,11 @@
     "allow": [
       "PowerShell(Get-Command node -ErrorAction SilentlyContinue; \\(Get-ChildItem \"C:\\\\Program Files\\\\nodejs\\\\node.exe\" -ErrorAction SilentlyContinue\\).FullName; \\(Get-ChildItem \"$env:APPDATA\\\\nvm\" -Filter \"node.exe\" -Recurse -ErrorAction SilentlyContinue | Select-Object -First 1\\).FullName)",
       "WebFetch(domain:api.cookie-api.com)",
-      "Bash(sed -i '' \\\\ *)"
+      "Bash(sed -i '' \\\\ *)",
+      "Read(//Users/jason/Desktop/tcso/**)",
+      "Bash(zip -r tcsov2_deploy.zip tcsov2 --exclude \"tcsov2/node_modules/*\" --exclude \"tcsov2/.git/*\" --exclude \"tcsov2/.env\" --exclude \"tcsov2/.github/*\")",
+      "Bash(zip -r ../tcsov2_deploy.zip . --exclude \"node_modules/*\" --exclude \".git/*\" --exclude \".env\" --exclude \".github/*\")",
+      "Bash(open -R /Users/jason/Desktop/tcso/.env.template)"
     ],
     "additionalDirectories": [
       "/Users/jason/Documents/GitHub/tcsov2/Messages"

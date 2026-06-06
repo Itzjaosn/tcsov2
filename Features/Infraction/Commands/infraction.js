@@ -44,7 +44,7 @@ module.exports = {
           new TextInputBuilder()
             .setCustomId("punishment")
             .setLabel("Punishment")
-            .setPlaceholder("<a:loading:1506059355227947181> Please provide the type of punishment. E.g., Warning, Suspension, etc.")
+            .setPlaceholder("E.g., Warning, Suspension, Termination, etc.")
             .setStyle(TextInputStyle.Short)
             .setRequired(true)
         )
